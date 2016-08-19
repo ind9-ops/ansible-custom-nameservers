@@ -5,7 +5,11 @@
     src: dhcp-enterhook.j2
     dest: /etc/dhcp/dhclient-enter-hooks.d/custom-hostname
     mode: 0644
-  notify: kill dhclient
+
+- name: release lease and restart dhclient
+  sudo: yes
+  shell: "dhclient -r; dhclient {{ansible_default_ipv4.interface}}"
+  changed_when: false
 
 - name: Restart resolvconf process
   sudo: yes

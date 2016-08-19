@@ -1,9 +1,3 @@
 ---
 - include: Debian.yml
   when: ansible_os_family == "Debian"
-
-handlers:
-- name: kill dhclient
-  command: /usr/bin/killall dhclient
-  ignore_errors: yes
-  changed_when: false
