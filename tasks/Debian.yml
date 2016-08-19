@@ -1,0 +1,14 @@
+---
+- name: Copy the custom-hostname dhcp enter hook
+  sudo: yes
+  template:
+    src: dhcp-enterhook.j2
+    dest: /etc/dhcp/dhclient-enter-hooks.d/custom-hostname
+    mode: 0644
+
+- name: Restart resolvconf process
+  sudo: yes
+  service:
+    name: resolvconf
+    state: restarted
+    enabled: yes
