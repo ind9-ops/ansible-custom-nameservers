@@ -5,6 +5,7 @@
     src: dhcp-enterhook.j2
     dest: /etc/dhcp/dhclient-enter-hooks.d/custom-hostname
     mode: 0644
+  notify: kill dhclient
 
 - name: Restart resolvconf process
   sudo: yes
