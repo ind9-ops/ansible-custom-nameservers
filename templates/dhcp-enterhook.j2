@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 # Prepend CustomNameServer to the list of name servers if new servers are being set.
 CustomNameServer="{{custom_name_servers}}"
-if [[ -n "$CustomNameServer" ]]; then
+if [ -n "$CustomNameServer" ]; then
   new_domain_name_servers="${CustomNameServer}"
 fi
